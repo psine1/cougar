@@ -1,0 +1,53 @@
+@font-face{
+  font-family: "primary-medium";
+  src: 
+       url("../fonts/TTNorms-Medium.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+/* Bold */
+@font-face{
+  font-family: "primary-bold";
+  src:        url("../fonts/tt-norms-bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+.logo{
+/*  mix-blend-mode: multiply; */
+}
+
+.primary-bold{
+  font-family: "primary-medium";
+}
+
+.primary-bold{
+  font-family: "primary-bold";
+}
+
+
+
+
+
+.shadow{
+    filter: drop-shadow(0px 0px 10px #000000);
+}
+
+
+  .card-frame{
+    border-radius:22px; overflow:hidden;
+    box-shadow:0 14px 40px rgba(0,0,0,.55);
+  }
+
+  /* marco opcional */
+  .card-frame{
+    border-radius:22px; overflow:hidden;
+    box-shadow:0 14px 40px rgba(0,0,0,.55);
+  }
+

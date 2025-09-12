@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Backdoors + Video</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+      <link rel="stylesheet" href="css/styles.css">
+
+</head>
+<body class="bg-[#f4f5f6] text-[#0b0b0c]">
+
+
+  <header class="flex items-center justify-between px-5 py-6">
+        <!-- Logo fijo arriba-izquierda -->
+    <a href="index.html"
+       class="fixed top-16 left-12 z-20 inline-flex items-center justify-center
+              w-32 h-32 md:w-32 md:h-32  text-black logo">
+      <img  src="images/logo-black.png"
+           alt="Logo" class="w-16 h-16 md:w-32 md:h-32 object-contain">
+    </a>
+    <!--
+    <img src="" alt="Logo" class="w-12 h-12 rounded">
+    <div class="flex items-center gap-3 text-xl">
+      <button aria-label="prev">⏮️</button>
+      <button aria-label="play">▶️</button>
+      <button aria-label="next">⏭️</button>
+    </div>
+    -->
+  </header>  
+  <!-- ===== Sección: Cougar Backdoors ===== -->
+<!-- ===== Sección: Cougar Backdoors (full height + logo) ===== -->
+<!-- ===== Cougar Backdoors (full width + 100svh) ===== -->
+<section class="relative bg-[#f4f5f6] text-[#2a211a] min-h-[100svh] flex justify-center items-center">
+
+
+
+  <!-- Contenido SIN container: padding fluido con clamp -->
+  <div class="px-[clamp(16px,6vw,80px)] py-10 md:py-16">
+
+    <!-- Título alineado a la derecha con “pr” para no chocar el logo -->
+    <h2 class="text-2xl sm:text-3xl md:text-4xl primary-bold font-semibold tracking-tight text-right pr-24 md:pr-28">
+      Cougar Backdoors
+    </h2>
+
+    <!-- Grid de cards a todo el ancho -->
+    <div class="mt-8 md:mt-10 grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-12">
+
+      <!-- Card 1 -->
+      <article class="group">
+        <figure class="relative overflow-hidden bg-black/5">
+          <img src="images/backdoor1.jpg"
+               alt="Cartera de modelaje"
+               class="w-full aspect-[4/3] object-cover transition-transform duration-300 group-hover:scale-[1.02]" />
+               <img src="./images/grunge-vertical-gray.png"
+         srcset="./images/grunge-vertical-gray.png 1x, ./images/grunge-vertical-gray@2x.png 2x"
+         alt="" class="absolute inset-0 w-full h-full object-fill
+                      pointer-events-none select-none">
+        </figure>
+        <h3 class="mt-4 text-xl md:text-2xl font-semibold primary-bold">Cartera de modelaje</h3>
+        <p class="text-sm md:text-base text-neutral-600">Santos Vayo</p>
+        <p class="mt-4 text-[15px] leading-relaxed text-neutral-700 italic">
+          “Quería que mi primer proyecto como modelo fuera con alguien en quien yo confiara…”
+        </p>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="group">
+        <figure class="relative overflow-hidden bg-black/5">
+          <img src="images/backdoor2.jpg"
+               alt="Sesión fotográfica comercial"
+               class="w-full aspect-[4/3] object-cover grayscale transition-transform duration-300 group-hover:scale-[1.02] group-hover:grayscale-0" />
+                              <img src="./images/grunge-vertical-gray.png"
+         srcset="./images/grunge-vertical-gray.png 1x, ./images/grunge-vertical-gray@2x.png 2x"
+         alt="" class="absolute inset-0 w-full h-full object-fill
+                      pointer-events-none select-none">
+        </figure>
+        <h3 class="mt-4 text-xl md:text-2xl font-semibold primary-bold">Sesión fotográfica comercial</h3>
+        <p class="text-sm md:text-base text-neutral-600">Segundo Rebolini</p>
+        <p class="mt-4 text-[15px] leading-relaxed text-neutral-700 italic">
+          “Me encanta trabajar con Diana porque captura la marca perfectamente bien…”
+        </p>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="group">
+        <figure class="relative overflow-hidden bg-black/5">
+          <img src="images/backdoor3.jpg"
+               alt="Campaña de colección"
+               class="w-full aspect-[4/3] object-cover transition-transform duration-300 group-hover:scale-[1.02]" />
+                              <img src="./images/grunge-vertical-gray.png"
+         srcset="./images/grunge-vertical-gray.png 1x, ./images/grunge-vertical-gray@2x.png 2x"
+         alt="" class="absolute inset-0 w-full h-full object-fill
+                      pointer-events-none select-none">
+        </figure>
+        <h3 class="mt-4 text-xl md:text-2xl font-semibold primary-bold">Campaña de colección</h3>
+        <p class="text-sm md:text-base text-neutral-600">Felipe Ferrer</p>
+        <p class="mt-4 text-[15px] leading-relaxed text-neutral-700 italic">
+          “Diana nos ayuda a poner de relieve el elemento humano en nuestra ropa…”
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+  <!-- ===== Sección: Video full-screen (como el intro) ===== -->
+  <section class="relative h-[100svh] overflow-hidden text-white">
+    <!-- Video de fondo -->
+    <video
+      class="absolute inset-0 w-full h-full object-cover"
+      autoplay muted loop playsinline preload="auto"
+      poster="https://dummyimage.com/1920x1080/000/ffffff&text=Video+Poster">
+      <source src="video/video-backdoors.mp4" type="video/mp4" />
+    </video>
+
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-black/30"></div>
+
+    <!-- CTA centrado -->
+
+
+    <!-- Borde fino opcional -->
+    <div class="pointer-events-none absolute inset-0 ring-1 ring-white/15"></div>
+  </section>
+
+  <!-- autoplay helper muy sutil -->
+  <script>
+    const v = document.querySelector('section video');
+    if (v) v.play().catch(()=>{});
+  </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Landing – Enter Gallery</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-black text-white">
+
+  <!-- HERO full height -->
+  <section class="relative h-[100svh] overflow-hidden">
+
+    <!-- Video BG -->
+    <video id="bgVideo"
+           class="absolute inset-0 w-full h-full object-cover pointer-events-none"
+           autoplay muted loop playsinline preload="auto"
+           poster="https://dummyimage.com/1920x1080/000/ffffff&text=Video+Poster"
+           aria-hidden="true">
+      <!-- Fuente de prueba -->
+      <source src="video/intro.mp4" type="video/mp4">
+      <!-- Fallback si no soporta video -->
+      Tu navegador no soporta video HTML5.
+    </video>
+
+    <!-- Overlay para contraste -->
+    <div class="absolute inset-0 bg-black/25"></div>
+
+    <a href="#home"
+       class="fixed top-16 left-12 z-20 inline-flex items-center justify-center
+              w-32 h-32 md:w-32 md:h-32 rounded-xl  text-black 
+              ring-1 ring-black/10">
+      <img class="logo" src="images/logo-cream.png"
+           alt="Logo" class="w-16 h-16 md:w-32 md:h-32 object-contain">
+    </a>
+
+    <!-- Botón centrado -->
+    <div class="relative z-10 h-full flex items-center justify-center">
+      <a href="menu.html"
+         class="inline-flex items-center gap-2 px-8 py-4 md:px-10 md:py-5
+                rounded-full uppercase tracking-wide text-sm md:text-base
+                bg-[#fdfabb]/100 text-black shadow-2xl ring-1 ring-black/10
+                hover:bg-white hover:shadow-[0_10px_30px_rgba(0,0,0,.25)]
+                transition-transform duration-200 hover:-translate-y-0.5
+                focus:outline-none focus-visible:ring-4 focus-visible:ring-white/40">
+        Enter Site
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 md:w-5 md:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.5 4.5L21 12l-7.5 7.5M21 12H3"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Borde fino opcional -->
+    <div class="pointer-events-none absolute inset-0 ring-1 ring-white/20"></div>
+  </section>
+
+  <!-- Empujoncito para iOS/Safari si hiciera falta -->
+  <script>
+    const v = document.getElementById('bgVideo');
+    if (v) {
+      const tryPlay = () => v.play().catch(() => {});
+      v.addEventListener('loadedmetadata', tryPlay, { once: true });
+      document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) tryPlay(); else v.pause();
+      });
+    }
+  </script>
+</body>
+</html>

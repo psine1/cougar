@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Menu imágenes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/styles.css">
+
+    
+</head>
+<body class="bg-[#2a211a] text-white min-h-screen">
+
+  <!-- Header -->
+ <header class="flex items-center justify-between px-5 py-6">
+        <!-- Logo fijo arriba-izquierda -->
+    <a href="index.html"
+       class="fixed top-16 left-12 z-20 inline-flex items-center justify-center
+              w-32 h-32 md:w-32 md:h-32  text-black ">
+      <img class="logo" src="images/logo-cream.png"
+           alt="shadow" class="w-16 h-16 md:w-32 md:h-32 object-contain">
+    </a>
+    <!--
+    <img src="" alt="Logo" class="w-12 h-12 rounded">
+    <div class="flex items-center gap-3 text-xl">
+      <button aria-label="prev">⏮️</button>
+      <button aria-label="play">▶️</button>
+      <button aria-label="next">⏭️</button>
+    </div>
+    -->
+  </header>  
+
+  <!-- Menú (ocupa ~100vh menos el header) -->
+  <main class="px-5 pb-6">
+    <!-- Ajustá 80px si tu header mide distinto -->
+    <section class="h-[calc(100svh-80px)] md:h-[calc(100svh-80px)]">
+
+      <div class="grid h-full gap-5
+                  grid-cols-1
+                  md:grid-cols-3 md:grid-rows-2">
+
+        <!-- Backdoors (col 1, ocupa 2 filas) -->
+        <a href="backdoors.html"
+           class="relative block overflow-hidden  h-72 md:h-auto md:row-span-2  group">
+          <img src="images/backdoors.jpg"
+               class="w-full h-full object-cover transition scale-100 group-hover:scale-[1.05] duration-300" alt="">
+                   <img src="./images/grunge-vertical.png"
+         srcset="./images/grunge-vertical.png 1x, ./images/grunge-vertical@2x.png 2x"
+         alt="" class="absolute inset-0 w-full h-full object-fill
+                      pointer-events-none select-none">
+          <span class="absolute text-[#fdfabb] left-8 bottom-8 primary-bold text-2xl md:text-4xl font-semibold shadow">Backdoors</span>
+        </a>
+
+        <!-- Shop (col 2, ocupa 2 filas) -->
+        <a href="#shop"
+           class="relative block overflow-hidden  h-72 md:h-auto md:row-span-2 group">
+          <img src="images/shop.jpg"
+               class="w-full h-full object-cover transition scale-100 group-hover:scale-[1.05] duration-300" alt="">
+                   <img src="./images/grunge-vertical.png"
+         srcset="./images/grunge-vertical.png 1x, ./images/grunge-vertical@2x.png 2x"
+         alt="" class="absolute inset-0 w-full h-full object-fill
+                      pointer-events-none select-none">
+          <span class="absolute text-[#fdfabb] left-8 bottom-8 primary-bold text-2xl md:text-4xl font-semibold shadow">Shop</span>
+        </a>
+
+        <!-- Contact (col 3, fila 1) -->
+        <a href="#contact"
+           class="relative block overflow-hidden  h-56 md:h-auto group">
+          <img src="images/contact.jpg"
+               class="w-full h-full object-cover grayscale transition scale-100 group-hover:scale-[1.05] duration-300" alt="">
+                   <img src="./images/grunge-vertical.png"
+         srcset="./images/grunge-vertical.png 1x, ./images/grunge-vertical@2x.png 2x"
+         alt="" class="absolute inset-0 w-full h-full object-fill
+                      pointer-events-none select-none">
+          <span class="absolute text-[#fdfabb] left-8 bottom-8 primary-bold text-2xl md:text-4xl font-semibold shadow">Contact</span>
+        </a>
+
+        <!-- Gallery (col 3, fila 2) -->
+        <a href="gallery.html"
+           class="relative block overflow-hidden  h-56 md:h-auto group">
+          <img src="images/gallery.jpg"
+               class="w-full h-full object-cover transition scale-100 group-hover:scale-[1.05] duration-300" alt="">
+                   <img src="./images/grunge-vertical.png"
+         srcset="./images/grunge-vertical.png 1x, ./images/grunge-vertical@2x.png 2x"
+         alt="" class="absolute inset-0 w-full h-full object-fill
+                      pointer-events-none select-none">
+          <span class="absolute text-[#fdfabb] left-8 bottom-8 primary-bold text-2xl md:text-4xl font-semibold shadow">Gallery</span>
+        </a>
+
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>
