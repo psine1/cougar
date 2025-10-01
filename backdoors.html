@@ -11,23 +11,25 @@
 <body class="bg-[#f4f5f6] text-[#0b0b0c]">
 
 
-  <header class="flex items-center justify-between px-5 py-6">
-        <!-- Logo fijo arriba-izquierda -->
-    <a href="index.html"
-       class="fixed top-16 left-12 z-20 inline-flex items-center justify-center
-              w-32 h-32 md:w-32 md:h-32  text-black logo">
-      <img  src="images/logo-black.png"
-           alt="Logo" class="w-16 h-16 md:w-32 md:h-32 object-contain">
-    </a>
-    <!--
-    <img src="" alt="Logo" class="w-12 h-12 rounded">
-    <div class="flex items-center gap-3 text-xl">
-      <button aria-label="prev">⏮️</button>
-      <button aria-label="play">▶️</button>
-      <button aria-label="next">⏭️</button>
+  <header class="sticky top-0 z-30 w-full bg-[#f4f5f6]/50 backdrop-blur-sm shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
+    <div class="mx-auto flex h-16 md:h-20 items-center justify-between px-5">
+      <!-- Logo (izquierda) -->
+      <a href="index.html" class="inline-flex items-center gap-3">
+        <img src="images/logo-black.png" alt="Logo" class="h-8 w-auto md:h-14 object-contain" />
+ 
+      </a>
+
+      <!-- Back (derecha) -->
+      <a href="menu.html"
+         onclick="if (history.length > 1) { event.preventDefault(); history.back(); }"
+         class="inline-flex items-center gap-2 rounded-full border border-black/20 px-3 py-2 text-sm md:text-base hover:bg-black/10 active:scale-95 transition">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="sr-only">Volver</span>
+      </a>
     </div>
-    -->
-  </header>  
+  </header>
   <!-- ===== Sección: Cougar Backdoors ===== -->
 <!-- ===== Sección: Cougar Backdoors (full height + logo) ===== -->
 <!-- ===== Cougar Backdoors (full width + 100svh) ===== -->

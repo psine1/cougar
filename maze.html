@@ -1,0 +1,86 @@
+<canvas id="mask" width="800" height="904" style="display:none"></canvas>
+<canvas id="game" width="800" height="904"></canvas>
+<script>
+const maskImgSrc = 'maze-mask.png'; // pared = negro (#000), camino = blanco (#fff)
+const mask = document.getElementById('mask');
+const mctx = mask.getContext('2d');
+
+const game = document.getElementById('game');
+const gctx = game.getContext('2d');
+
+const player = { x: 60, y: 60, r: 12, speed: 2 };
+
+const img = new Image();
+img.src = maskImgSrc;
+img.onload = () => {
+  // Dibuja la máscara 1:1 (ideal). Si escalás visualmente el juego, ver notas abajo.
+  mctx.drawImage(img, 0, 0, mask.width, mask.height);
+  loop();
+};
+
+function isWallAt(x, y) {
+  // Bounds check
+  if (x < 0 || y < 0 || x >= mask.width || y >= mask.height) return true;
+  const data = mctx.getImageData(x|0, y|0, 1, 1).data;  // [r,g,b,a]
+  // Considera pared si es oscuro/negro o totalmente opaco en canal A (ajustá al diseño).
+  const [r,g,b,a] = data;
+  // Umbral: si (r+g+b) es chico => negro => pared
+  return a > 0 && (r + g + b) < 30;
+}
+
+// Chequea colisión de un círculo sampleando alrededor
+function collidesCircle(x, y, r) {
+  // 8 muestras alrededor del perímetro
+  for (let i = 0; i < 8; i++) {
+    const ang = (Math.PI * 2 * i) / 8;
+    const px = x + Math.cos(ang) * r;
+    const py = y + Math.sin(ang) * r;
+    if (isWallAt(px, py)) return true;
+  }
+  // Extra: chequea el centro si querés tratar paredes muy finas
+  return isWallAt(x, y);
+}
+
+// Movimiento básico con flechas + colisión
+const keys = {};
+addEventListener('keydown', e => keys[e.key] = true);
+addEventListener('keyup',   e => keys[e.key] = false);
+
+function tryMove(dx, dy) {
+  const nx = player.x + dx, ny = player.y + dy;
+  if (!collidesCircle(nx, ny, player.r)) {
+    player.x = nx; player.y = ny; 
+  } else {
+    // resolución simple: intenta separar ejes
+    if (!collidesCircle(player.x + dx, player.y, player.r)) player.x += dx;
+    else if (!collidesCircle(player.x, player.y + dy, player.r)) player.y += dy;
+    // si choca en ambos ejes, no se mueve
+  }
+}
+
+function update() {
+  let dx = 0, dy = 0;
+  if (keys['ArrowLeft']  || keys['a']) dx -= player.speed;
+  if (keys['ArrowRight'] || keys['d']) dx += player.speed;
+  if (keys['ArrowUp']    || keys['w']) dy -= player.speed;
+  if (keys['ArrowDown']  || keys['s']) dy += player.speed;
+  if (dx && dy) { dx *= Math.SQRT1_2; dy *= Math.SQRT1_2; } // diag
+  if (dx || dy) tryMove(dx, dy);
+}
+
+function draw() {
+  gctx.clearRect(0,0,game.width,game.height);
+  // (Opcional) dibujar el laberinto visible si querés: gctx.drawImage(img, 0, 0, game.width, game.height);
+  // Jugador
+  gctx.beginPath();
+  gctx.arc(player.x, player.y, player.r, 0, Math.PI*2);
+  gctx.fillStyle = '#4af';
+  gctx.fill();
+}
+
+function loop(){
+  update();
+  draw();
+  requestAnimationFrame(loop);
+}
+</script>
